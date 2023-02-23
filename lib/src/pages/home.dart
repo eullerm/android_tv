@@ -1,5 +1,6 @@
 import 'package:android_tv/src/data/media.dart';
 import 'package:android_tv/src/widget/media_card.dart';
+import 'package:android_tv/src/widget/titles_row.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -28,108 +29,27 @@ class _HomeState extends State<Home> {
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 16),
-              const Text(
-                'Filmes',
-                style: TextStyle(fontSize: 36.0, fontWeight: FontWeight.bold),
+            children: const [
+              TitlesRow(
+                title: 'Filmes',
+                mediaType: MediaType.movie,
               ),
-              const SizedBox(height: 8),
-              SizedBox(
-                height: 200,
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: mediaList
-                        .where((Media media) => media.mediaType == MediaType.movie)
-                        .map(
-                          (movie) => MediaCard(media: movie),
-                        )
-                        .toList(),
-                  ),
-                ),
+              TitlesRow(
+                title: 'Series',
+                mediaType: MediaType.series,
               ),
-              const SizedBox(height: 16),
-              const Text(
-                'Series',
-                style: TextStyle(fontSize: 36.0, fontWeight: FontWeight.bold),
+              TitlesRow(
+                title: 'Desenhos',
+                mediaType: MediaType.cartoon,
               ),
-              const SizedBox(height: 8),
-              SizedBox(
-                height: 200,
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: mediaList
-                        .where((Media media) => media.mediaType == MediaType.series)
-                        .map(
-                          (movie) => MediaCard(media: movie),
-                        )
-                        .toList(),
-                  ),
-                ),
+              TitlesRow(
+                title: 'Animes',
+                mediaType: MediaType.anime,
               ),
-              const SizedBox(height: 16),
-              const Text(
-                'Cartoon',
-                style: TextStyle(fontSize: 36.0, fontWeight: FontWeight.bold),
+              TitlesRow(
+                title: 'Reality Show',
+                mediaType: MediaType.realityShow,
               ),
-              const SizedBox(height: 8),
-              SizedBox(
-                height: 200,
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: mediaList
-                        .where((Media media) => media.mediaType == MediaType.cartoon)
-                        .map(
-                          (movie) => MediaCard(media: movie),
-                        )
-                        .toList(),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 16),
-              const Text(
-                'Animes',
-                style: TextStyle(fontSize: 36.0, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 8),
-              SizedBox(
-                height: 200,
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: mediaList
-                        .where((Media media) => media.mediaType == MediaType.anime)
-                        .map(
-                          (movie) => MediaCard(media: movie),
-                        )
-                        .toList(),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 16),
-              const Text(
-                'Reality Show',
-                style: TextStyle(fontSize: 36.0, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 8),
-              SizedBox(
-                height: 200,
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: mediaList
-                        .where((Media media) => media.mediaType == MediaType.realityShow)
-                        .map(
-                          (movie) => MediaCard(media: movie),
-                        )
-                        .toList(),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 16),
             ],
           ),
         ),
