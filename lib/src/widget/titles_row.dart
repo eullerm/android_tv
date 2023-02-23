@@ -18,7 +18,7 @@ class _TitlesRowState extends State<TitlesRow> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 8.0),
+          padding: const EdgeInsets.only(left: 10.0),
           child: Text(
             widget.title,
             style: const TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
