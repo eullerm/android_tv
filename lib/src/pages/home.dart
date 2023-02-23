@@ -1,7 +1,6 @@
 import 'package:android_tv/src/data/media.dart';
 import 'package:android_tv/src/widget/media_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class Home extends StatefulWidget {
   static const routeName = '/home';
@@ -12,14 +11,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  FocusScopeNode cardFocusScopeNode = FocusScopeNode();
-
-  @override
-  void dispose() {
-    cardFocusScopeNode.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,17 +37,15 @@ class _HomeState extends State<Home> {
               const SizedBox(height: 8),
               SizedBox(
                 height: 200,
-                child: Expanded(
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: mediaList
-                          .where((Media media) => media.mediaType == MediaType.movie)
-                          .map(
-                            (movie) => MediaCard(media: movie),
-                          )
-                          .toList(),
-                    ),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: mediaList
+                        .where((Media media) => media.mediaType == MediaType.movie)
+                        .map(
+                          (movie) => MediaCard(media: movie),
+                        )
+                        .toList(),
                   ),
                 ),
               ),
@@ -68,17 +57,15 @@ class _HomeState extends State<Home> {
               const SizedBox(height: 8),
               SizedBox(
                 height: 200,
-                child: Expanded(
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: mediaList
-                          .where((Media media) => media.mediaType == MediaType.series)
-                          .map(
-                            (movie) => MediaCard(media: movie),
-                          )
-                          .toList(),
-                    ),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: mediaList
+                        .where((Media media) => media.mediaType == MediaType.series)
+                        .map(
+                          (movie) => MediaCard(media: movie),
+                        )
+                        .toList(),
                   ),
                 ),
               ),
@@ -90,17 +77,15 @@ class _HomeState extends State<Home> {
               const SizedBox(height: 8),
               SizedBox(
                 height: 200,
-                child: Expanded(
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: mediaList
-                          .where((Media media) => media.mediaType == MediaType.cartoon)
-                          .map(
-                            (movie) => MediaCard(media: movie),
-                          )
-                          .toList(),
-                    ),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: mediaList
+                        .where((Media media) => media.mediaType == MediaType.cartoon)
+                        .map(
+                          (movie) => MediaCard(media: movie),
+                        )
+                        .toList(),
                   ),
                 ),
               ),
@@ -112,17 +97,15 @@ class _HomeState extends State<Home> {
               const SizedBox(height: 8),
               SizedBox(
                 height: 200,
-                child: Expanded(
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: mediaList
-                          .where((Media media) => media.mediaType == MediaType.anime)
-                          .map(
-                            (movie) => MediaCard(media: movie),
-                          )
-                          .toList(),
-                    ),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: mediaList
+                        .where((Media media) => media.mediaType == MediaType.anime)
+                        .map(
+                          (movie) => MediaCard(media: movie),
+                        )
+                        .toList(),
                   ),
                 ),
               ),
@@ -134,17 +117,15 @@ class _HomeState extends State<Home> {
               const SizedBox(height: 8),
               SizedBox(
                 height: 200,
-                child: Expanded(
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: mediaList
-                          .where((Media media) => media.mediaType == MediaType.realityShow)
-                          .map(
-                            (movie) => MediaCard(media: movie),
-                          )
-                          .toList(),
-                    ),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: mediaList
+                        .where((Media media) => media.mediaType == MediaType.realityShow)
+                        .map(
+                          (movie) => MediaCard(media: movie),
+                        )
+                        .toList(),
                   ),
                 ),
               ),

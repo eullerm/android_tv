@@ -1,30 +1,10 @@
 import 'package:android_tv/src/data/media.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
-class MediaCard extends StatefulWidget {
+class MediaCard extends StatelessWidget {
   final Media media;
 
   const MediaCard({super.key, required this.media});
-
-  @override
-  State<MediaCard> createState() => _MediaCardState();
-}
-
-class _MediaCardState extends State<MediaCard> {
-  late FocusNode focusNode;
-
-  @override
-  void initState() {
-    super.initState();
-    focusNode = FocusNode();
-  }
-
-  @override
-  void dispose() {
-    focusNode.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +28,21 @@ class _MediaCardState extends State<MediaCard> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: Image.network(
-                  widget.media.imageUrl,
+                  media.imageUrl,
+                  loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
+                    if (loadingProgress == null) {
+                      return child;
+                    }
+                    return Center(
+                      child: CircularProgressIndicator(
+                        strokeWidth: 0.8,
+                        value: loadingProgress.expectedTotalBytes != null
+                            ? loadingProgress.cumulativeBytesLoaded / (loadingProgress.expectedTotalBytes as num)
+                            : null,
+                        color: Color(0xFF00695c),
+                      ),
+                    );
+                  },
                   fit: BoxFit.fill,
                 ),
               ),
@@ -60,7 +54,7 @@ class _MediaCardState extends State<MediaCard> {
                 width: 200,
                 decoration: BoxDecoration(
                   color: Colors.black.withOpacity(0.5),
-                  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
+                  borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.5),
@@ -72,7 +66,7 @@ class _MediaCardState extends State<MediaCard> {
                 child: Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(
-                    widget.media.title,
+                    media.title,
                     style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold, color: Colors.white),
                     textAlign: TextAlign.center,
                   ),
