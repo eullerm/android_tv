@@ -28,8 +28,7 @@ class _SignUpState extends State<SignUp> {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            stops: [0.8, 1],
-            colors: [Color(0xFF43A047), Color(0xFF00695C)],
+            colors: [Color(0xFF000000), Color(0xFF00695C)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -139,7 +138,7 @@ class _SignUpState extends State<SignUp> {
                                 _isLoading = true;
                               });
 
-                              Future.delayed(const Duration(seconds: 5), () {
+                              Future.delayed(const Duration(seconds: 3), () {
                                 setState(() {
                                   _isLoading = false;
                                 });

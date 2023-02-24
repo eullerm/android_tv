@@ -21,15 +21,19 @@ class _TitlesRowState extends State<TitlesRow> {
           padding: const EdgeInsets.only(left: 10.0),
           child: Text(
             widget.title,
-            style: const TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
+            style: const TextStyle(
+              fontSize: 18.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
           ),
         ),
         SizedBox(
-          height: 150,
+          height: 135,
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: mediaList
                   .where((Media media) => media.mediaType == widget.mediaType)
                   .map(

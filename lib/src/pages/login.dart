@@ -26,8 +26,7 @@ class _LoginState extends State<Login> {
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            stops: [0.8, 1],
-            colors: [Color(0xFF43A047), Color(0xFF00695C)],
+            colors: [Color(0xFF00695C), Color(0xFF000000)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -46,11 +45,7 @@ class _LoginState extends State<Login> {
                     offset: Offset(0, 0),
                   ),
                 ],
-                gradient: LinearGradient(
-                  colors: [Color(0x5543A047), Color(0x5500695C)],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
+                color: Color(0x5500695C),
               ),
               width: MediaQuery.of(context).size.width / 2,
               child: Column(
@@ -86,7 +81,7 @@ class _LoginState extends State<Login> {
                               _isLoading = true;
                             });
 
-                            Future.delayed(const Duration(seconds: 5), () {
+                            Future.delayed(const Duration(seconds: 3), () {
                               setState(() {
                                 _isLoading = false;
                               });

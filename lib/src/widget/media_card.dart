@@ -64,7 +64,7 @@ class _MediaCardState extends State<MediaCard> with SingleTickerProviderStateMix
         child: ScaleTransition(
           scale: _animation,
           child: Container(
-            margin: const EdgeInsets.only(left: 10, right: 10),
+            margin: const EdgeInsets.only(left: 11, right: 11),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10),
@@ -104,21 +104,14 @@ class _MediaCardState extends State<MediaCard> with SingleTickerProviderStateMix
                   child: Container(
                     width: 200,
                     decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.5),
+                      color: Colors.black.withOpacity(0.6),
                       borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.5),
-                          spreadRadius: 0,
-                          blurRadius: 10,
-                        ),
-                      ],
                     ),
                     child: Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: Text(
                         widget.media.title,
-                        style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold, color: Colors.white),
+                        style: TextStyle(fontSize: 12.0, color: Colors.white),
                         textAlign: TextAlign.center,
                       ),
                     ),

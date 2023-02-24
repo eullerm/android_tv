@@ -48,6 +48,8 @@ class _CreditCardInputState extends State<CreditCardInput> {
           FocusManager.instance.primaryFocus!.focusInDirection(TraversalDirection.up);
         } else if (event.logicalKey == LogicalKeyboardKey.arrowDown) {
           FocusManager.instance.primaryFocus!.focusInDirection(TraversalDirection.down);
+        } else if (event.logicalKey == LogicalKeyboardKey.goBack) {
+          Navigator.pop(context);
         }
         return KeyEventResult.handled;
       },
@@ -57,10 +59,14 @@ class _CreditCardInputState extends State<CreditCardInput> {
         controller: widget.controller,
         decoration: InputDecoration(
           labelText: widget.label,
-          labelStyle: TextStyle(color: _isFocused ? Colors.greenAccent : Colors.black),
+          labelStyle: TextStyle(color: _isFocused ? Color(0xFF43A047) : Colors.white),
           isDense: true,
+          enabledBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.white),
+            borderRadius: BorderRadius.circular(16),
+          ),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(width: 2.0, color: Colors.greenAccent),
+            borderSide: BorderSide(width: 2.0, color: Color(0xFF43A047)),
             borderRadius: BorderRadius.circular(16),
           ),
           border: OutlineInputBorder(

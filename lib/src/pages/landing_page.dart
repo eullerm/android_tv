@@ -27,7 +27,7 @@ class _LandingPageState extends State<LandingPage> {
           Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                colors: [Color(0xFF00695C), Color(0xFF43A047)],
+                colors: [Color(0xFF00695C), Color(0xFF000000)],
                 begin: Alignment.bottomLeft,
                 end: Alignment.topRight,
               ),
@@ -36,13 +36,26 @@ class _LandingPageState extends State<LandingPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  'Lorem ipsum dolor.',
-                  style: TextStyle(fontSize: 36.0, fontWeight: FontWeight.bold),
+                Center(
+                  child: Container(
+                    padding: const EdgeInsets.all(8.0),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(bottomLeft: Radius.circular(15), topRight: Radius.circular(15)),
+                    ),
+                    child: const Text(
+                      'TV',
+                      style: TextStyle(fontSize: 36.0, color: Colors.black),
+                    ),
+                  ),
                 ),
                 Text(
                   'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                  style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
               ],
             ),
@@ -50,7 +63,7 @@ class _LandingPageState extends State<LandingPage> {
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [Color(0xFF43A047), Color(0xFF00695C)],
+                colors: [Color(0xFF000000), Color(0xFF00695C)],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),

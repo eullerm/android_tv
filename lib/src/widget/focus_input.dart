@@ -36,7 +36,6 @@ class _FocusInputState extends State<FocusInput> {
 
   @override
   Widget build(BuildContext context) {
-    print(_isFocused);
     return Focus(
       canRequestFocus: false,
       onKey: (FocusNode node, RawKeyEvent event) {
@@ -48,6 +47,8 @@ class _FocusInputState extends State<FocusInput> {
           FocusManager.instance.primaryFocus!.focusInDirection(TraversalDirection.up);
         } else if (event.logicalKey == LogicalKeyboardKey.arrowDown) {
           FocusManager.instance.primaryFocus!.focusInDirection(TraversalDirection.down);
+        } else if (event.logicalKey == LogicalKeyboardKey.goBack) {
+          Navigator.pop(context);
         }
         return KeyEventResult.handled;
       },
@@ -57,10 +58,14 @@ class _FocusInputState extends State<FocusInput> {
         controller: widget.controller,
         decoration: InputDecoration(
           labelText: widget.label,
-          labelStyle: TextStyle(color: _isFocused ? Colors.greenAccent : Colors.black),
+          labelStyle: TextStyle(color: _isFocused ? Color(0xFF43A047) : Colors.white),
+          enabledBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.white),
+            borderRadius: BorderRadius.circular(16),
+          ),
           isDense: true,
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(width: 2.0, color: Colors.greenAccent),
+            borderSide: const BorderSide(width: 2.0, color: Color(0xFF43A047)),
             borderRadius: BorderRadius.circular(16),
           ),
           border: OutlineInputBorder(

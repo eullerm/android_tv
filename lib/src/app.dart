@@ -1,3 +1,6 @@
+import 'dart:io';
+import 'dart:ui';
+
 import 'package:android_tv/src/pages/home.dart';
 import 'package:android_tv/src/pages/landing_page.dart';
 import 'package:android_tv/src/pages/login.dart';
@@ -63,7 +66,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(),
             darkTheme: ThemeData.dark(),
             themeMode: settingsController.themeMode,
-            initialRoute: '/home',
+            initialRoute: '/landing-page',
             // Define a function to handle named routes in order to support
             // Flutter web url navigation and deep linking.
             onGenerateRoute: (RouteSettings routeSettings) {
@@ -103,17 +106,38 @@ class MyApp extends StatelessWidget {
                     default:
                       return Stack(
                         children: [
-                          LandingPage(),
+                          Center(
+                            child: ClipRect(
+                              child: BackdropFilter(
+                                filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+                                child: Container(
+                                  width: double.infinity,
+                                  height: double.infinity,
+                                  decoration: BoxDecoration(color: Colors.grey.shade200.withOpacity(0.5)),
+                                ),
+                              ),
+                            ),
+                          ),
                           AlertDialog(
-                            title: const Text('Deseja sair da plataforma?'),
+                            title: const Text(
+                              'Deseja sair da plataforma?',
+                              style: TextStyle(fontSize: 12.0, color: Colors.white),
+                            ),
+                            backgroundColor: Color(0xFF00695C),
                             actions: <Widget>[
                               TextButton(
                                 onPressed: () => Navigator.pushNamed(context, '/landing-page'),
-                                child: const Text('Não'),
+                                child: const Text(
+                                  'Não',
+                                  style: TextStyle(fontSize: 12.0, color: Colors.white),
+                                ),
                               ),
                               TextButton(
                                 onPressed: () => Navigator.pop(context),
-                                child: const Text('Sim'),
+                                child: const Text(
+                                  'Sim',
+                                  style: TextStyle(fontSize: 12.0, color: Colors.white),
+                                ),
                               ),
                             ],
                           ),
